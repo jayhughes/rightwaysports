@@ -1,0 +1,202 @@
+/* Header and navigation */
+#logo {
+    z-index: 70;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    text-align:center;
+    a {
+        z-index: 70;
+        display: inline-block;
+        width: 120px;
+        position: relative;
+        background: url("/img/logo.png") scroll 0 0/100%;
+        text-indent: -9999px;
+        height: 81px;
+        color: $main-black;
+
+        &:hover {
+            color: $green-1;
+        }
+    }
+
+    h1 {
+    }
+}
+
+.search {
+    width: 450px;
+    margin: 10px 16px;
+    height: 20px;
+}
+
+nav {
+    display: block;
+    width: 100%;
+    position: relative;
+    background: white;
+    z-index: 50;
+    transition: background .25s ease-in-out;
+    -moz-transition: background .25s ease-in-out;
+    -webkit-transition: background .25s ease-in-out;
+
+    &.fixed {
+        position: fixed;
+        height: 123px;
+    }
+
+    .top-bar {
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 85;
+        position: relative;
+        max-height: 55px;
+
+        ul {
+            background: none;
+        }
+
+        .top-bar-left, .top-bar-right {
+            a {
+                background-color: transparent;
+                color: #404040;
+                text-decoration: none;
+                cursor: pointer;
+                font-weight: 500;
+                text-transform: uppercase;
+                font-size: 0.8rem;
+
+                i {
+                    margin-left: 10px;
+                }
+
+                &:hover {
+                    color: $green-1;
+                }
+            }
+        }
+
+        .top-bar-left {
+            margin: 0 auto;
+            float: none;
+            width: 66%;
+
+            .submenu {
+                border: none;
+                width: 800%;
+                top: 47px;
+
+                li {
+                    a {
+                        font-size: 0.8rem;
+                        text-transform: capitalize;
+                    }
+
+                    section {
+                        float: left;
+                        margin: 0 1rem 0.5rem 1rem;
+                    }
+
+                    .horizontal-rule {
+                        border-top: 1px solid #e8e8e8;
+                        float: left;
+                        width: 100%;
+                        margin-top: 1rem;
+                    }
+
+                    &.level-two {
+                        margin: 0.2rem 0 0 0;
+
+                        h3 {
+                            margin: 1rem 0 0 0;
+
+                            a {
+                                font-weight: bold;
+                            }
+                        }
+
+                        dl {
+                            float: left;
+                            width: 100%;
+                        }
+
+                        dt {
+                            margin: 1rem 0 0 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .top-bar-right {
+            position: absolute;
+            top: -38px;
+            right: -2px;
+            font-size: 0.7rem;
+
+            i {
+                font-size: 1rem;
+                position: relative;
+                top: -2px;
+            }
+
+            // .dropdown.menu .submenu.first-sub {
+            //     top: 100%;
+            //     left: -175%;
+            //     right: auto;
+            // }
+
+            .submenu {
+                border: none;
+
+                // top: 78px !important;
+           
+            }
+        }
+
+        #search {
+            position: absolute;
+            right: 23px;
+            top: 17px;
+            padding: 0;
+            margin: 0;
+            text-transform: uppercase;
+            color: #a0a0a0;
+
+            i {
+                margin-left: 5px;
+            }
+        }
+
+        .search-bar {
+            width: 100%;
+            position: absolute;
+            background: white;
+            padding: 0;
+            left: 0px;
+            top: 54px;
+            display: none;
+            border-top: 1px solid #eaeaea;
+
+            input {
+                text-align: center;
+                font-size: 2rem;
+                border: none;
+                outline: none;
+                width: 100%;
+                left: 0;
+                box-shadow: none;
+                font-weight: 200;
+                padding: 2rem 0;
+                margin: 0;
+            }
+
+            .close {
+                position: absolute;
+                right: 25px;
+                top: 30px;
+                background: #eaeaea;
+                padding: 2px 5px;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+RewriteEngine On
+
+#order deny,allow
+#deny from all
+#allow from 5.148.75.50
+#allow from 127.0.0.1
+#allow from 78.149.113.25
+#allow from 127.0.0.1
+#allow from 192.168
+#allow from 192.168.1.76
+#allow from 2.29.229.165
+#allow from 212.187.1.67
+#allow from 81.110.185.253
+#allow from 31.52.141.97
+#allow from 81.151.128.255
+#allow from 90.221.181.132
+#allow from 109.153.131.85
+#allow from 94.119.65.142
+#allow from 86.179.91.188
+#allow from 87.114.11.4
+
+ErrorDocument 403 /landing.html
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
