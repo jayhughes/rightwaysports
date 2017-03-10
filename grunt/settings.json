@@ -1,0 +1,14 @@
+{
+
+	"paths":{
+
+		"app_source":      "ui/",
+		"app_js":          "ui/js/",
+		"app_sass":        "ui/sass/",
+
+		"prod_css": "../css/",
+		"prod_js": "../js/"
+
+	}
+
+}
