@@ -64,11 +64,11 @@
 				<ul class="wow fadeIn">
 					<li>	
 						<input type="hidden" name="cmd" value="_s-xclick" />
-						<input type="hidden" name="hosted_button_id" value="64PJL3XBYGEK6" />
+						<input type="hidden" name="hosted_button_id" value="8J42RM4MWR3HW" />
 						<input type="hidden" name="on0" value="Sports Camp" />
 						<select name="os0" id="pass-options">
-							<option id="day-selected" value="Day Pass">Day Pass &pound;22.50 GBP (Discount)</option>
-							<option value="Week Pass">Week Pass &pound;90.00 GBP (Discount)</option>
+							<option id="day-selected" value="Day Pass">Day Pass &pound;25.00 GBP</option>
+							<option value="Week Pass">Week Pass &pound;100.00 GBP</option>
 						</select>
 						<input type="hidden" name="on1" value="Details" />
 
