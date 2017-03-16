@@ -14,6 +14,11 @@ function setHeight() {
 }
 
 
+$( function() {
+    $("#tabs").tabs();
+});
+
+
 // Private
 
 var common = (function(document) {
@@ -32,22 +37,31 @@ var common = (function(document) {
     },
 
     dateRange = function() {
-        $("#dayOfWeek").datepicker({
+        $("#dayOfWeekOne").datepicker({
             dateFormat:'dd/mm/yy', 
-            minDate: new Date(2017,01,13),
-            maxDate: new Date(2017,01,17)
+            minDate: new Date(2017,04,3),
+            maxDate: new Date(2017,04,7)
         });
+
+        // $("#dayOfWeekTwo").datepicker({
+        //     dateFormat:'dd/mm/yy', 
+        //     minDate: new Date(2017,04,10),
+        //     maxDate: new Date(2017,04,13)
+        // });
     },
 
     selectChange = function() {
-        $('#pass-options').on('change', function() {
-            if($('#pass-options option:selected').val() === 'Day Pass') {
-                $('#day-option').show();
-            }
-            else {
-                $('#day-option').hide();
-                $('#dayOfWeek').val('');
-            }
+        $('.pass-options').each(function() {
+            var $thisDayOption = $(this).parent().find('.day-option');
+            $(this).on('change', function() {
+                if($(this).find('option:selected').val() === 'Day Pass') {
+                    $thisDayOption.show();
+                }
+                else {
+                    $thisDayOption.hide();
+                    $(this).find('.dayOfWeekInput').val('');
+                }
+            });
         });
     },
 
@@ -56,10 +70,11 @@ var common = (function(document) {
         var $inputs = $('.disabled');
         var $textArea = $('.hide-text-area');
         var $button = $('button.pay');
-        var $form = $('#payment');
+        var $form = $('.payment');
         var isValid;
 
         function getInputsText() {
+            console.log($textArea);
             $textArea.val(
                 $inputs.map(function() {
                     return $(this).attr('name') + ': ' + $(this).val();
@@ -70,21 +85,23 @@ var common = (function(document) {
             $inputs.prop('disabled', true);
         }
             
-        $form.validate({
-            ignore: ".hide-text-area",
-            rules: {
-                childName: "required",
-                parentsName: "required",
-                phoneNumber: "required",
-                email: {
-                    required: true,
-                    email: true
+        $form.each(function() {
+            $(this).validate({
+                ignore: ".hide-text-area",
+                rules: {
+                    childName: "required",
+                    parentsName: "required",
+                    phoneNumber: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                submitHandler: function(form) {
+                    console.log(getInputsText());
+                    // form.submit();
                 }
-            },
-            submitHandler: function(form) {
-                getInputsText();
-                form.submit();
-            }
+            });
         });
        
     },

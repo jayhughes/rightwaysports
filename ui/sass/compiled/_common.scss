@@ -67,7 +67,7 @@ section {
 }
 
 .payment {
-    margin: 2rem 0;
+    // margin: 2rem 0;
     select {
         margin-bottom: 1rem;
     }
@@ -230,4 +230,70 @@ only screen and (min-width : 375px) and (max-width : 667px) {
           -ms-animation: none !important;
               animation: none !important;
     }
+}
+
+#tabs { 
+    background: transparent; 
+    border: none; 
+} 
+#tabs .ui-widget-header { 
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid #c0c0c0; 
+    -moz-border-radius: 0px; 
+    -webkit-border-radius: 0px; 
+    border-radius: 0px; 
+    padding: 0 4%;
+} 
+#tabs .ui-tabs-nav .ui-state-default { 
+    display: inline-block;
+    float: left;
+    width: initial;
+} 
+#tabs .ui-tabs-nav .ui-state-active { 
+    border: none; 
+} 
+#tabs .ui-tabs-nav .ui-state-default a { 
+    // color: #c0c0c0; 
+} 
+#tabs .ui-tabs-nav .ui-state-active a { 
+    // color: #459e00; 
+}
+
+.ui-tabs-nav {
+    padding: 0 4%;
+    display: inline-block;
+    width: 100%;
+}
+
+.ui-widget-header {
+    margin-top: 5%;
+    li {
+        margin-right: 10px;
+        a {
+            padding: 8px;
+            color: black;
+            display: block;
+            font-weight: bold;
+
+        }
+        &:nth-child(1) {
+            background: #e88121;
+        }
+        &:nth-child(2) {
+            background: #4caf50;
+        }
+    }
+}
+
+#tabs-1, #tabs-2 {
+    padding: 4%;
+}
+
+#tabs-1 {
+    background: #e88121;
+}
+
+#tabs-2 {
+    background: #4caf50;
 }

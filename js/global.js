@@ -7,6 +7,10 @@ function setHeight() {
     });
 }
 
+$(function() {
+    $("#tabs").tabs();
+});
+
 // Private
 var common = function(document) {
     var docElem = document.documentElement, _userAgentInit = function() {
@@ -16,38 +20,43 @@ var common = function(document) {
             $(this).attr("placeholder", "Search...");
         });
     }, dateRange = function() {
-        $("#dayOfWeek").datepicker({
+        $("#dayOfWeekOne").datepicker({
             dateFormat: "dd/mm/yy",
-            minDate: new Date(2017, 1, 13),
-            maxDate: new Date(2017, 1, 17)
+            minDate: new Date(2017, 4, 3),
+            maxDate: new Date(2017, 4, 7)
         });
     }, selectChange = function() {
-        $("#pass-options").on("change", function() {
-            "Day Pass" === $("#pass-options option:selected").val() ? $("#day-option").show() : ($("#day-option").hide(), 
-            $("#dayOfWeek").val(""));
+        $(".pass-options").each(function() {
+            var $thisDayOption = $(this).parent().find(".day-option");
+            $(this).on("change", function() {
+                "Day Pass" === $(this).find("option:selected").val() ? $thisDayOption.show() : ($thisDayOption.hide(), 
+                $(this).find(".dayOfWeekInput").val(""));
+            });
         });
     }, submitToPayPal = function() {
         function getInputsText() {
-            $textArea.val($inputs.map(function() {
+            console.log($textArea), $textArea.val($inputs.map(function() {
                 return $(this).attr("name") + ": " + $(this).val();
             }).get().join("; ")), $inputs.prop("disabled", !0);
         }
         var $inputs = $(".disabled"), $textArea = $(".hide-text-area"), $form = ($("button.pay"), 
-        $("#payment"));
-        $form.validate({
-            ignore: ".hide-text-area",
-            rules: {
-                childName: "required",
-                parentsName: "required",
-                phoneNumber: "required",
-                email: {
-                    required: !0,
-                    email: !0
+        $(".payment"));
+        $form.each(function() {
+            $(this).validate({
+                ignore: ".hide-text-area",
+                rules: {
+                    childName: "required",
+                    parentsName: "required",
+                    phoneNumber: "required",
+                    email: {
+                        required: !0,
+                        email: !0
+                    }
+                },
+                submitHandler: function(form) {
+                    console.log(getInputsText());
                 }
-            },
-            submitHandler: function(form) {
-                getInputsText(), form.submit();
-            }
+            });
         });
     }, _init = function() {
         _userAgentInit(), submitToPayPal(), dateRange(), selectChange();
